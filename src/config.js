@@ -1,6 +1,10 @@
 import isActive from './activityFns.js'
 import * as singleSpa from 'single-spa'
 import config from '../config.js'
+import EventBus from './tools/eventBus'
+
+window.eventBus = new EventBus()
+window.EventBus = EventBus
 
 /**
  * 根据配置文件，
@@ -14,7 +18,7 @@ for (let component in config.components) {
         if (componentObj.router === true) {
             return componentObj.router
         } else {
-            return isActive(componentObj.router)
+            return isActive(componentObj.router || component)
         }
     })
 }
