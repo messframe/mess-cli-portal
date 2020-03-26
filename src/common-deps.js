@@ -19,17 +19,11 @@ function insertNewImportMap(newMapJSON) {
 let commonDepsImportMap = {}
 for (let commonDep in config["common-deps"][process.env.NODE_ENV]) {
   let commonDepObj = config["common-deps"][process.env.NODE_ENV][commonDep]
-  componentsImportMap[componentObj.moduleName] = `${
+  commonDepsImportMap[commonDep] = `${
     process.env.NODE_ENV === 'development'
-    ? componentObj.origin
-    : (component === 'center'
-    ? ''
-    : (componentObj.prodOrigin
-      ? componentObj.prodOrigin 
-      : ('/' + component)
-      )
-    )
-  }${componentObj.entry}`
+    ? config["common-deps-origin"][process.env.NODE_ENV]
+    : '/common-deps-static'
+  }${commonDepObj}`
 }
 const dependencies = {
   imports: commonDepsImportMap
@@ -41,7 +35,13 @@ for (let component in config.components) {
   componentsImportMap[componentObj.moduleName] = `${
     process.env.NODE_ENV === 'development'
     ? componentObj.origin
-    : (component === 'portal' ? '' : ('/' + component))
+    : (component === 'center'
+    ? ''
+    : (componentObj.prodOrigin
+      ? componentObj.prodOrigin 
+      : ('/' + component)
+      )
+    )
   }${componentObj.entry}`
 }
 const componentEntrys = {
