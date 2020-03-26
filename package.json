@@ -12,6 +12,14 @@
     "build:config": "cross-env NODE_ENV=production webpack --config ./build_conf/webpack.config.config.js -p",
     "build:common-deps": "cross-env NODE_ENV=production webpack --config ./build_conf/webpack.common-deps.config.js -p"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/messframe/mess-cli-portal.git"
+  },
+  "bugs": {
+    "url": "https://github.com/messframe/mess-cli-portal/issues"
+  },
+  "homepage": "https://github.com/messframe/mess-cli-portal#readme",
   "keywords": [],
   "author": "",
   "license": "ISC",
