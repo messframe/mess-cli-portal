@@ -74,7 +74,6 @@ module.exports = {
     }),
     CopyWebpackPlugin([
       {from: path.resolve(__dirname, '../src/index.html')},
-      {from: path.resolve(__dirname, '../src/styles.css')},
       {
         from: path.resolve(__dirname, '../common-deps-static'),
         to: path.resolve(__dirname, '../build/common-deps-static'),
