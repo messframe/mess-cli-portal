@@ -1,5 +1,6 @@
 module.exports = {
     "title": "portal",
+    "routerMode": 'history',
     "components": {
         "portal": {
             "moduleName": "@portal/config",
