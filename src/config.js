@@ -14,12 +14,12 @@ window.EventBus = EventBus
 for (let component in config.components) {
     if (component === 'portal') continue
     let componentObj = config.components[component]
-    singleSpa.registerApplication(component, () => SystemJS.import(componentObj.moduleName), () => {
+    singleSpa.registerApplication(component, () => SystemJS.import(componentObj.moduleName), (() => {
         if (componentObj.router === true) {
             return componentObj.router
         } else {
             return isActive(componentObj.router || component)
         }
-    })
+    })())
 }
 singleSpa.start()
