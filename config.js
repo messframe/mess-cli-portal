@@ -1,6 +1,6 @@
 module.exports = {
     "title": "portal",
-    "routerMode": 'history',
+    "routerMode": "hash",
     "components": {
         "portal": {
             "moduleName": "@portal/config",

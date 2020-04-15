@@ -1,9 +1,8 @@
 import isActive from './activityFns.js'
 import * as singleSpa from 'single-spa'
 import config from '../config.js'
-import EventBus from './tools/eventBus'
-import Router from './tools/router'
-
+import EventBus from 'mess-eventbus'
+import Router from 'mess-router'
 let eventBus = new EventBus()
 let router = new Router(config.routerMode)
 
