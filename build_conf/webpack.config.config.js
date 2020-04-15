@@ -1,6 +1,6 @@
 /* eslint-env node */
 const path = require('path');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const config = require('../config.js')
@@ -72,14 +72,14 @@ module.exports = {
       commonDepsOrigin: config["common-deps-origin"][process.env.NODE_ENV],
       commonDepsConf: config["common-deps-conf"][process.env.NODE_ENV]
     }),
-    CopyWebpackPlugin([
+    new CopyWebpackPlugin([
       {from: path.resolve(__dirname, '../src/index.html')},
       {
         from: path.resolve(__dirname, '../common-deps-static'),
         to: path.resolve(__dirname, '../build/common-deps-static'),
       },
     ]),
-    new CleanWebpackPlugin(['../build']),
+    new CleanWebpackPlugin(),
   ],
   devtool: 'source-map',
   externals: [
