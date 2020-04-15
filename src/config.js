@@ -1,6 +1,6 @@
 import isActive from './activityFns.js'
 import * as singleSpa from 'single-spa'
-import config from '../config.js'
+import config from '../mess.config.js'
 import EventBus from 'mess-eventbus'
 import Router from 'mess-router'
 let eventBus = new EventBus()
