@@ -1,5 +1,5 @@
 window.SystemJS = window.System
-import config from '../config.js'
+import config from '../mess.config'
 
 /**
  * 注入命名模块，添加进index.html
